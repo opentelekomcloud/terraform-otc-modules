@@ -20,7 +20,7 @@ resource "openstack_lb_pool_v2" "pool" {
 }
 
 resource "openstack_lb_member_v2" "member" {
-  count         = "${length(var.members)}"
+  count         = "${var.members_count}"
   address       = "${element(var.members, count.index)}"
   pool_id       = "${openstack_lb_pool_v2.pool.id}"
   subnet_id     = "${var.subnet_id}"

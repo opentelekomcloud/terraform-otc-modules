@@ -2,6 +2,8 @@ variable "name" {}
 
 variable "subnet_id" {}
 
+variable "members_count" {}
+
 variable "members" {
     type = "list"
 }
