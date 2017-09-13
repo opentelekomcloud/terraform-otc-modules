@@ -48,7 +48,7 @@ variable "ext_net_name" {
     default = "admin_external_net"
 }
 
-variable "dependecies" {
+variable "dependencies" {
     type    = "list"
     default = []
 }
