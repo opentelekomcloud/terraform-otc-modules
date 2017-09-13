@@ -1,7 +1,7 @@
 resource "openstack_lb_loadbalancer_v2" "loadbalancer" {
   name           = "${var.name}-loadbalancer"
   vip_subnet_id  = "${var.subnet_id}"
-  description    = "depends: ${join(",", var.dependencies}"
+  description    = "depends: ${join(",", var.dependencies)}"
   admin_state_up = "true"
 }
 
