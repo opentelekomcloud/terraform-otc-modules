@@ -1,6 +1,7 @@
 resource "openstack_lb_loadbalancer_v2" "loadbalancer" {
   name           = "${var.name}-loadbalancer"
   vip_subnet_id  = "${var.subnet_id}"
+  descriiption   = "member_count: ${var.members_count}"
   admin_state_up = "true"
 }
 
