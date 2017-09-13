@@ -39,6 +39,6 @@ resource "openstack_lb_monitor_v2" "monitor" {
 
 resource "openstack_networking_floatingip_v2" "fip" {
   count   = "${var.attach_eip == "true" ? 1 : 0}"
-  pool    = "${var.external_network}"
+  pool    = "${var.ext_net_name}"
   port_id = "${openstack_lb_loadbalancer_v2.loadbalancer.vip_port_id}"
 }
