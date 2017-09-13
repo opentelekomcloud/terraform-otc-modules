@@ -36,3 +36,9 @@ resource "openstack_lb_monitor_v2" "monitor" {
   timeout        = "${var.monitor_timeout}"
   max_retries    = "${var.monitor_retries}"
 }
+
+resource "openstack_networking_floatingip_v2" "fip" {
+  count   = "${var.attach_eip == "true" ? 1 : 0}"
+  pool    = "${var.external_network}"
+  port_id = "${openstack_lb_loadbalancer_v2.loadbalancer.vip_port_id}"
+}

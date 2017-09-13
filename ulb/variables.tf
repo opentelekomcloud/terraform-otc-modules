@@ -8,6 +8,10 @@ variable "members" {
     type = "list"
 }
 
+variable "attach_eip" {
+    type = "true"
+}
+
 variable "protocol" {
     default = "HTTP"
 }
@@ -38,4 +42,8 @@ variable "monitor_timeout" {
 
 variable "monitor_retries" {
     default = "5"
+}
+
+variable "ext_net_name" {
+    default = "admin_external_net"
 }
