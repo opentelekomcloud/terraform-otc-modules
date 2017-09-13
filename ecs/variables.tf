@@ -4,7 +4,7 @@ variable "image" {}
 
 variable "flavor" {}
 
-variable "keypair" {}
+variable "pubkey" {}
 
 variable "network_id" {}
 
@@ -22,7 +22,7 @@ variable "security_groups" {
     default = []
 }
 
-variable "count" {
+variable "ecs_count" {
     default = "1"
 }
 
