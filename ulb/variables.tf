@@ -9,7 +9,7 @@ variable "members" {
 }
 
 variable "attach_eip" {
-    type = "true"
+    default = "true"
 }
 
 variable "protocol" {
