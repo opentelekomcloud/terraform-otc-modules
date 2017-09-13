@@ -47,8 +47,3 @@ variable "monitor_retries" {
 variable "ext_net_name" {
     default = "admin_external_net"
 }
-
-variable "dependencies" {
-    type    = "list"
-    default = []
-}
