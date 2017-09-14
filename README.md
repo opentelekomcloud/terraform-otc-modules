@@ -1,6 +1,6 @@
 # Terraform Modules for use with Open Teleko Cloud
 
-## Use moduls with terraform
+## Use modules with terraform
 
 ## Module description
 
@@ -10,11 +10,11 @@ This modules creates a VPC (Virtual Private Cloud)
 
 **Parameter**
 
-* **name** (naming prefix for created resources)
-
-* **subnet** (cidr of the desired subnet for the VPC)
-
-* **nameserver** (_optional_, nameserver to provide vi DHCP)
+| Name | Description | Required | Default |
+|---|---|---|---|
+| name | naming prefix for created resources | True | |
+| subnet | cidr of the desired subnet for the VPC | True | |
+| nameserver | nameserver to provide vi DHCP | False | 8.8.8.8, 8.8.4.4 |
 
 **Attributes**
 
@@ -38,6 +38,8 @@ This modules creates a VPC (Virtual Private Cloud)
 
 ### ECS
 
+This module creates one or more ECS (Elastic Cloud Server)
+
 **Parameter**
 
 **Attributes**
@@ -46,6 +48,8 @@ This modules creates a VPC (Virtual Private Cloud)
 
 ### EVS
 
+This module creates one or more EVS (Elastic Volume Service)
+
 **Parameter**
 
 **Attributes**
@@ -53,6 +57,8 @@ This modules creates a VPC (Virtual Private Cloud)
 **Native OpenStack resources**
 
 ### ULB
+
+This module creates a ULB (Unified Load Balancer)
 
 **Parameter**
 
