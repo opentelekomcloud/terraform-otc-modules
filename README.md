@@ -78,9 +78,24 @@ This module creates one or more EVS (Elastic Volume Service)
 
 **Parameter**
 
+| Name | Description | Type | Required | Default |
+|---|---|---|---|---|
+| name | naming prefix for created resources | String | True | |
+| size\_in\_gb | size of the volume in GByte | String | True | |
+| ecs\_ids | list of IDs from ECS to attach the volumes to | List | True | |
+| evs\_count | number of volumes to create | String | False | 1 |
+
 **Attributes**
 
+| Name | Description | Type |
+|---|---|---|
+| ids | list of IDs of the created volumes | List |
+
 **Native OpenStack resources**
+
+* **openstack\_blockstorage\_volume\_v2**
+
+* **openstack\_compute\_volume\_attach\_v2**
 
 ### ULB
 
@@ -88,6 +103,14 @@ This module creates a ULB (Unified Load Balancer)
 
 **Parameter**
 
+| Name | Description | Type | Required | Default |
+|---|---|---|---|---|
+| name | naming prefix for created resources | String | True | |
+
 **Attributes**
+
+| Name | Description | Type |
+|---|---|---|
+| addresses | list of ipv4 addresses of the created servers | List |
 
 **Native OpenStack resources**
