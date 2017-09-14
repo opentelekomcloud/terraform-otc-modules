@@ -18,13 +18,12 @@ This modules creates a VPC (Virtual Private Cloud)
 
 **Attributes**
 
-* **network\_id** (the id of the created network)
-
-* **router\_id** (the id of the created router)
-
-* **interface\_port** (the port id of the created router interface)
-
-* **subnet\_id** (the id of the created subnet)
+| Name | Description |
+|---|---|
+| network\_id | the id of the created network |
+| router\_id | the id of the created router |
+| interface\_port| the port id of the created router interface |
+| subnet\_id | the id of the created subnet |
 
 **Native OpenStack resources**
 
@@ -41,6 +40,19 @@ This modules creates a VPC (Virtual Private Cloud)
 This module creates one or more ECS (Elastic Cloud Server)
 
 **Parameter**
+
+| Name | Description | Required | Default |
+|---|---|---|---|
+| name | naming prefix for created resources | True | |
+| image | name of the image to use for the server| True | |
+| flavor | name of the flavor | True | |
+| pubkey | the public key to deploy on the server | True| |
+| network\_id | the ID of the network to attach the server to | True | |
+| subnet\_id | the ID of the subnet to attach the server to | True |
+| user\_data | the user data to inject | False | None |
+| attach\_eip | weather or not to attach en EIP to the server | False | None |
+| security\_groups | list of security group ids to attach to the server | False | None |
+| ecs\_count | how many ECS should be created| False | 1 |
 
 **Attributes**
 
