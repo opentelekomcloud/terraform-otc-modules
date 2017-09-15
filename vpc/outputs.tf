@@ -1,15 +1,19 @@
 output "network_id" {
-    value = "${openstack_networking_network_v2.network.id}"
+    description = "the id of the created network"
+    value       = "${openstack_networking_network_v2.network.id}"
 }
 
 output "router_id" {
-    value = "${openstack_networking_router_v2.router.id}"
+    description = "the id of the created router"
+    value       = "${openstack_networking_router_v2.router.id}"
 }
 
 output "interface_port" {
-    value = "${openstack_networking_router_interface_v2.interface.port_id}"
+    description = "the port id of the created router interface"
+    value       = "${openstack_networking_router_interface_v2.interface.port_id}"
 }
 
 output "subnet_id" {
-    value = "${openstack_networking_subnet_v2.subnet.id}"
+    description = "the id of the created subnet"
+    value       = "${openstack_networking_subnet_v2.subnet.id}"
 }

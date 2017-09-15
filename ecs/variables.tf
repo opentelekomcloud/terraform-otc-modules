@@ -1,31 +1,49 @@
-variable "name" {}
+variable "name" {
+    description = "naming prefix for created resources"
+}
 
-variable "image" {}
+variable "image" {
+    description = "name of the image to use for the server"
+}
 
-variable "flavor" {}
+variable "flavor" {
+    description = "name of the flavor to use for the server"
+}
 
-variable "pubkey" {}
+variable "pubkey" {
+    description = "the public key to deploy on the server"
+}
 
-variable "network_id" {}
+variable "network_id" {
+    description = "the ID of the network to attach the server to"
+}
 
-variable "subnet_id" {}
+variable "subnet_id" {
+    description = "the ID of the subnet to attach the server to"
+}
 
 variable "user_data" {
-    default = ""
+    description = "the user data to inject"
+    default     = ""
 }
 
 variable "attach_eip" {
-    default = ""
+    description = "whether or not to attach en EIP to the server"
+    default      = ""
 }
 
 variable "security_groups" {
-    default = []
+    type        = "list"
+    description = "list of security group ids to attach to the server"
+    default     = []
 }
 
 variable "ecs_count" {
-    default = "1"
+    description = "number of ECS instances to create"
+    default     = "1"
 }
 
 variable "ext_net_name" {
-    default = "admin_external_net"
+    description = "name of the external network (do not change)"
+    default     = "admin_external_net"
 }

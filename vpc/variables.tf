@@ -1,11 +1,18 @@
-variable "name" {}
+variable "name" {
+    description = "naming prefix for created resources"
+}
 
-variable "subnet" {}
+variable "subnet" {
+    description = "cidr of the desired subnet for the VPC"
+}
 
 variable "nameserver" {
-    default = ["8.8.8.8", "8.8.4.4"]
+    type        = "list"
+    description = "nameserver to provide vi DHCP"
+    default     = ["8.8.8.8", "8.8.4.4"]
 }
 
 variable "ext_net_name" {
-    default = "admin_external_net"
+    description = "name of the external network (do not change)"
+    default     = "admin_external_net"
 }
