@@ -1,12 +1,20 @@
-# Terraform Modules for use with Open Teleko Cloud
+# Terraform Modules for use with Open Telekom Cloud
+
+This repository contains Terraform modules ready for use with Open Telekom Cloud. These modules aim to correlate the native OpenStack resources under the paradigm of OTC like ECS, VPC, etc.
 
 ## Use modules with terraform
+
+See the Terraform documentation on [how to use modules](https://www.terraform.io/docs/modules/usage.html).
+
+If starting from scratch, a `terraform init` in you terraform directory will initialize and download the required plugins as well as the modules. If you already have an initialized workspace and just want to retrieve the modules, you can do that via `terraform get`. Please note that any subsequent invocations of `terraform get` will **NOT** update the modules. If you want to get the latest version, you need to issue the command `terraform get -update=true`.
+
+To see an example implementation of these modules, you can use [this repository](https://github.com/OpenTelekomCloud/terraform-otc/tree/master/modules).
 
 ## Module description
 
 ### EVS
 
-This modules creates one or more EVS (Elastic Volume Service).
+This modules creates one or more EVS (Elastic Volume Service). Using the `ecs_count` variable, any number of volumes can be created. These volumes have to be attached to an ECS instance (or a ordinary OpenStack compute instance), provided via the `ecs_ids` parameter.
 
 **Parameter**
 
@@ -31,7 +39,7 @@ This modules creates one or more EVS (Elastic Volume Service).
 
 ### ECS
 
-This modules creates one or more ECS (Elastic Cloud Server).
+This modules creates one or more ECS (Elastic Cloud Server). 
 
 **Parameter**
 
