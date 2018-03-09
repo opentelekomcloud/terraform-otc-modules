@@ -15,6 +15,7 @@ resource "openstack_networking_router_v2" "router" {
   name             = "${var.name}-router"
   admin_state_up   = "true"
   external_gateway = "${data.openstack_networking_network_v2.extnet.id}"
+  enable_snat      = "${var.snat}"
 }
 
 resource "openstack_networking_router_interface_v2" "interface" {

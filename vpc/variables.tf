@@ -6,6 +6,10 @@ variable "subnet" {
     description = "cidr of the desired subnet for the VPC"
 }
 
+variable "snat" {
+  description = "snat setting"
+}
+
 variable "nameserver" {
     type        = "list"
     description = "nameserver to provide vi DHCP"
