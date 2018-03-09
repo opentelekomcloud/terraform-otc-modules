@@ -39,7 +39,7 @@ This modules creates one or more EVS (Elastic Volume Service). Using the `ecs_co
 
 ### ECS
 
-This modules creates one or more ECS (Elastic Cloud Server). 
+This modules creates one or more ECS (Elastic Cloud Server).
 
 **Parameter**
 
@@ -56,6 +56,7 @@ This modules creates one or more ECS (Elastic Cloud Server).
 |security\_groups|list of security group ids to attach to the server|list|False|[]|
 |ecs\_count|number of ECS instances to create|string|False|1|
 |ext\_net\_name|name of the external network (do not change)|string|False|admin_external_net|
+|zone|Name of availability zone|string|False||
 
 **Attributes**
 
@@ -131,6 +132,7 @@ This modules creates a VPC (Virtual Private Cloud).
 |subnet|cidr of the desired subnet for the VPC|string|True||
 |nameserver|nameserver to provide vi DHCP|list|False|['8.8.8.8', '8.8.4.4']|
 |ext\_net\_name|name of the external network (do not change)|string|False|admin_external_net|
+|snat|snat setting|string|True||
 
 **Attributes**
 
@@ -150,4 +152,3 @@ This modules creates a VPC (Virtual Private Cloud).
 * **openstack\_networking\_router\_v2**
 
 * **openstack\_networking\_router\_interface\_v2**
-

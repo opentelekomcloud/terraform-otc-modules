@@ -48,7 +48,7 @@ variable "ext_net_name" {
     default     = "admin_external_net"
 }
 
-variable "availability_zone" {
-    description = "name of the external network (do not change)"
+variable "zone" {
+    description = "Name of availability zone"
     default     = ""
 }

@@ -5,7 +5,7 @@ resource "openstack_compute_instance_v2" "instance" {
   flavor_name        = "${var.flavor}"
   key_pair           = "${openstack_compute_keypair_v2.keypair.name}"
   user_data          = "${var.user_data}"
-  availability_zone  = "${var.availability_zone}"
+  availability_zone  = "${var.zone}"
   network {
     port = "${element(openstack_networking_port_v2.network_port.*.id, count.index)}"
     access_network = true
