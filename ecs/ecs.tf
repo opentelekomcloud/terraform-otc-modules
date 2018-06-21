@@ -6,14 +6,14 @@ resource "openstack_compute_instance_v2" "instance" {
   key_pair    = "${openstack_compute_keypair_v2.keypair.name}"
   user_data   = "${var.user_data}"
   network {
-    uuid = "${openstack_networking_network_v2.network.id}"
+    uuid = "${var.network_id}"
   }
 }
 
 resource "openstack_compute_floatingip_associate_v2" "instance_fip" {
   count                 = "${var.attach_eip == "true" ? var.ecs_count : 0}"
-  floating_ip           = "${element(openstack_networking_floatingip_v2.fip.*.address, count.index)}"
-  instance_id           = "${element(openstack_compute_instance_v2.webserver.*.id, count.index)}"
+  floating_ip           = "${openstack_networking_floatingip_v2.fip.*.address[count.index]}"
+  instance_id           = "${openstack_compute_instance_v2.instance.*.id[count.index]}"
   wait_until_associated = "true"
 }
 
