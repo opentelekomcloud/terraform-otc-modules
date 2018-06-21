@@ -6,26 +6,20 @@ resource "openstack_compute_instance_v2" "instance" {
   key_pair    = "${openstack_compute_keypair_v2.keypair.name}"
   user_data   = "${var.user_data}"
   network {
-    port = "${element(openstack_networking_port_v2.network_port.*.id, count.index)}"
-    access_network = true
+    uuid = "${openstack_networking_network_v2.network.id}"
   }
 }
 
-resource "openstack_networking_port_v2" "network_port" {
-  count              = "${var.ecs_count}"
-  network_id         = "${var.network_id}"
-  security_group_ids = ["${var.security_groups}"]
-  admin_state_up     = "true"
-  fixed_ip           = {
-    subnet_id        = "${var.subnet_id}"
-  }
+resource "openstack_compute_floatingip_associate_v2" "instance_fip" {
+  count                 = "${var.attach_eip == "true" ? var.ecs_count : 0}"
+  floating_ip           = "${element(openstack_networking_floatingip_v2.fip.*.address, count.index)}"
+  instance_id           = "${element(openstack_compute_instance_v2.webserver.*.id, count.index)}"
+  wait_until_associated = "true"
 }
 
 resource "openstack_networking_floatingip_v2" "fip" {
   count    = "${var.attach_eip == "true" ? var.ecs_count : 0}"
   pool     = "${var.ext_net_name}"
-  port_id  = "${element(openstack_networking_port_v2.network_port.*.id, count.index)}"
-  depends_on = ["openstack_compute_instance_v2.instance"]
 }
 
 resource "openstack_compute_keypair_v2" "keypair" {

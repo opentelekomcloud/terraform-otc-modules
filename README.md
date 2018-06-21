@@ -8,7 +8,7 @@ See the Terraform documentation on [how to use modules](https://www.terraform.io
 
 If starting from scratch, a `terraform init` in you terraform directory will initialize and download the required plugins as well as the modules. If you already have an initialized workspace and just want to retrieve the modules, you can do that via `terraform get`. Please note that any subsequent invocations of `terraform get` will **NOT** update the modules. If you want to get the latest version, you need to issue the command `terraform get -update=true`.
 
-To see an example implementation of these modules, you can use [this repository](https://github.com/OpenTelekomCloud/terraform-otc/tree/master/modules).
+To see an example implementation of these modules, you can use [this repository](https://github.com/OpenTelekomCloud/terraform-otc/tree/master/modules), especially [this file](https://github.com/OpenTelekomCloud/terraform-otc/blob/master/modules/main.tf).
 
 ## Module description
 
@@ -39,7 +39,11 @@ This modules creates one or more EVS (Elastic Volume Service). Using the `ecs_co
 
 ### ECS
 
-This modules creates one or more ECS (Elastic Cloud Server). 
+This modules creates one or more ECS (Elastic Cloud Server). The information for `image` and `flavor` can be found when creating a new ECS in OTC:
+
+![]()
+
+
 
 **Parameter**
 
