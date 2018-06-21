@@ -73,8 +73,6 @@ This modules creates one or more ECS (Elastic Cloud Server). The information for
 
 * **openstack\_compute\_instance\_v2**
 
-* **openstack\_networking\_port\_v2**
-
 * **openstack\_networking\_floatingip\_v2**
 
 * **openstack\_compute\_keypair\_v2**
